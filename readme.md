@@ -11,7 +11,7 @@ This is a dead simple instagram feed web component, compiled with Stencil.
 
 It's intentionally minimal design so that you can apply your own design language to this. 
 
-[]
+![Instagram Feed Example](instagram-feed.gif)
 
 ## Using this component
 
