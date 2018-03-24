@@ -1,6 +1,6 @@
 {
   "name": "instagram-feed",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple Instagram feed web component",
   "main": "dist/instagram-feed.js",
   "types": "dist/types/index.d.ts",
@@ -18,10 +18,10 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@stencil/sass": "0.0.3",
     "line-clamp": "0.0.7"
   },
   "devDependencies": {
+    "@stencil/sass": "0.0.3",
     "@stencil/core": "^0.7.6",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
