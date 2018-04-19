@@ -13,10 +13,11 @@ export class InstagramFeed {
   @Prop() even: boolean = false;
   @Prop() captions: boolean = false;
   @Prop() link: boolean = true;
+  @Prop() permalinks: boolean = false;
 
   @Prop() token: string;
 
-  @State() photos: Array<Object>;
+  @State() photos: Array<any>;
 
   componentWillLoad() {
     this.fetchItems();
@@ -89,8 +90,10 @@ export class InstagramFeed {
   }
 
   renderPhoto(photo) {
-    return (
-      <div class="item">
+    const Tag = this.permalinks ? "a" : "div";
+
+    // @ts-ignore
+    return (<Tag class="item" href={photo.link} target="_blank">
         <div class="content">
           <smart-image preload={photo.images.thumbnail.url} width={photo.images.standard_resolution.width} height={photo.images.standard_resolution.height} square={this.even} fill={this.even}>
             <source srcSet={photo.images.low_resolution.url}  media="(max-width: 600px)" />
@@ -98,8 +101,7 @@ export class InstagramFeed {
           </smart-image>
           {this.captions && photo.caption && this.renderCaptions(photo)}
         </div>
-      </div>
-    )
+      </Tag>)
   }
 
   render() {

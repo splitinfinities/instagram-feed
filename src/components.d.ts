@@ -3,6 +3,9 @@
  * It contains typing information for all components that exist in this project
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
+
+import '@stencil/core';
+
 declare global {
   namespace JSX {
     interface Element {}
@@ -21,13 +24,22 @@ declare global {
 }
 
 
-import {
-  InstagramFeed as InstagramFeed
-} from './components/instagram-feed/instagram-feed';
-
 declare global {
-  interface HTMLInstagramFeedElement extends InstagramFeed, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface InstagramFeed {
+      'captions': boolean;
+      'count': number;
+      'even': boolean;
+      'link': boolean;
+      'permalinks': boolean;
+      'token': string;
+      'user': string;
+    }
   }
+
+  interface HTMLInstagramFeedElement extends StencilComponents.InstagramFeed, HTMLStencilElement {}
+
   var HTMLInstagramFeedElement: {
     prototype: HTMLInstagramFeedElement;
     new (): HTMLInstagramFeedElement;
@@ -49,21 +61,29 @@ declare global {
       'count'?: number;
       'even'?: boolean;
       'link'?: boolean;
+      'permalinks'?: boolean;
       'token'?: string;
       'user'?: string;
-      
     }
   }
 }
 
 
-import {
-  SmartImage as SmartImage
-} from './components/smart-image/smart-image';
-
 declare global {
-  interface HTMLSmartImageElement extends SmartImage, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface SmartImage {
+      'bg': string;
+      'fill': boolean;
+      'height': number;
+      'preload': string;
+      'square': boolean;
+      'width': number;
+    }
   }
+
+  interface HTMLSmartImageElement extends StencilComponents.SmartImage, HTMLStencilElement {}
+
   var HTMLSmartImageElement: {
     prototype: HTMLSmartImageElement;
     new (): HTMLSmartImageElement;
@@ -87,7 +107,6 @@ declare global {
       'preload'?: string;
       'square'?: boolean;
       'width'?: number;
-      
     }
   }
 }
