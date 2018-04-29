@@ -68,15 +68,9 @@ export class InstagramFeed {
   }
 
   async fetchItems() {
-    let items: any = localStorage.getItem(`instagram-feed-${this.count}-${this.user}`);
-
-    if (!items) {
-      const response = await fetch(this.url());
-      items = await response.json();
-      localStorage.setItem(`instagram-feed-${this.count}-${this.user}`, JSON.stringify(items));
-    } else {
-      items = JSON.parse(items);
-    }
+    const response = await fetch(this.url());
+    const items = await response.json();
+    localStorage.setItem(`instagram-feed-${this.count}-${this.user}`, JSON.stringify(items));
 
     this.photos = items.data;
   }
